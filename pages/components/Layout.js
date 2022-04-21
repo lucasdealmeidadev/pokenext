@@ -11,7 +11,7 @@ export default function Layout({ children }) {
                 <title>PokeNet</title>
             </Head>
             <Navbar />
-            <main>
+            <main className='main-container'>
                 {children}
             </main>
             <Footer />
