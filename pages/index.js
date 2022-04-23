@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import Card from './components/Card';
+import Card from '../components/Card';
 import styles from '../styles/Home.module.css'
 import Image from 'next/image';
 
