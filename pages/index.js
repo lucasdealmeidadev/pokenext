@@ -29,8 +29,11 @@ export default function Home({ pokemons }) {
   const [paginate, setPaginate] = useState(0);
   const [removeButton, setRemoveButton] = useState(false);
   const [offset, setOffset] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const getPokemons = async (offset) => {
+    setLoading(true);
+
     const api = `https://pokeapi.co/api/v2/pokemon?limit=20&offset=${offset}`;
     const response = await fetch(api);
     const data = await response.json();
@@ -49,6 +52,7 @@ export default function Home({ pokemons }) {
     });
 
     setPaginate(data.results);
+    setLoading(false);
   }
 
   useEffect(() => {
@@ -83,7 +87,9 @@ export default function Home({ pokemons }) {
 
         {!removeButton && 
           <div className={styles.load_more}>
-            <button onClick={() => setOffset(offset + 20)}>Carregar Mais</button>
+            <button onClick={() => setOffset(offset + 20)}>
+              { !loading ? 'Carregar mais' : 'Aguarde, carregando...'}
+            </button>
           </div>
         }
       </div>
