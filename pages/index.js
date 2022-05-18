@@ -87,7 +87,7 @@ export default function Home({ pokemons }) {
 
         {!removeButton && 
           <div className={styles.load_more}>
-            <button onClick={() => setOffset(offset + 20)}>
+            <button disabled={loading} onClick={() => setOffset(offset + 20)}>
               { !loading ? 'Carregar mais' : 'Aguarde, carregando...'}
             </button>
           </div>
