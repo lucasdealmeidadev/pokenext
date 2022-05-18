@@ -24,3 +24,25 @@
     max-width: 1100px;
     margin: 0 auto;
 }
+
+.load_more {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.load_more button{
+    text-decoration: none;
+    background-color: #e33d33;
+    color: #fff;
+    padding: .7em 1.2em;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.4s;
+    border: none;
+    cursor: pointer;
+}
+
+.load_more button:hover {
+    background-color: #333;
+}
