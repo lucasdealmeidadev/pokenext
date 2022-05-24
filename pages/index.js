@@ -51,7 +51,12 @@ export default function Home({ pokemons }) {
       value = item.id;
     });
 
-    setPaginate(data.results);
+    if (Array.isArray(paginate)) {
+      setPaginate(paginate.concat(data.results));
+    } else {
+      setPaginate(data.results);
+    }
+
     setLoading(false);
   }
 
@@ -85,10 +90,10 @@ export default function Home({ pokemons }) {
           ))
         }
 
-        {!removeButton && 
+        {!removeButton &&
           <div className={styles.load_more}>
             <button disabled={loading} onClick={() => setOffset(offset + 20)}>
-              { !loading ? 'Carregar mais' : 'Aguarde, carregando...'}
+              {!loading ? 'Carregar mais' : 'Aguarde, carregando...'}
             </button>
           </div>
         }
