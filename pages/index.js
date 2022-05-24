@@ -51,12 +51,9 @@ export default function Home({ pokemons }) {
       value = item.id;
     });
 
-    if (Array.isArray(paginate)) {
-      setPaginate(paginate.concat(data.results));
-    } else {
-      setPaginate(data.results);
-    }
+    const paginateData = Array.isArray(paginate) ? paginate.concat(data.results) : data.results;
 
+    setPaginate(paginateData);
     setLoading(false);
   }
 
