@@ -76,7 +76,20 @@ export default function Home({ pokemons }) {
           alt='PokeNext'
         />
       </div>
+
       <div className={styles.pokemon_container}>
+        <form className={styles.form}>
+          <div className={styles.form_control}>
+            <input
+              type='text'
+              name='search'
+              placeholder='Pesquise pelo pokémon desejado...'
+            />
+
+            <button type='submit'>Pesquisar</button>
+          </div>
+        </form>
+
         {pokemons.map((pokemon) => (
           <Card key={pokemon.id} pokemon={pokemon} />
         ))}

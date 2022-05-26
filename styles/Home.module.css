@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
 
 .title {
@@ -31,7 +31,8 @@
     justify-content: center;
     align-items: center;
 }
-.load_more button{
+.load_more button,
+.form_control button{
     text-decoration: none;
     background-color: #e33d33;
     color: #fff;
@@ -43,6 +44,30 @@
     cursor: pointer;
 }
 
-.load_more button:hover {
+.load_more button:hover,
+.form_control button:hover {
     background-color: #333;
+}
+
+.form {
+    width: 100%;
+    margin: 2em 0;
+}
+
+.form_control {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+.form_control input {
+    padding: .9em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 90%;
+}
+
+.form-control input::placeholder {
+    color: #7b7b7b;
 }
