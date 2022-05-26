@@ -1,0 +1,74 @@
+#notfound_container {
+    position: relative;
+    height: 100vh;
+    color: #333;
+}
+
+#notfound_container .notfound {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.notfound {
+    max-width: 767px;
+    width: 100%;
+    line-height: 1.4;
+    padding: 0px 15px;
+}
+
+.notfound .notfound_404 {
+    position: relative;
+    height: 150px;
+    line-height: 150px;
+    margin-bottom: 25px;
+}
+
+.notfound .notfound_404 h1 {
+    font-size: 186px;
+    font-weight: 900;
+    margin: 0px;
+    text-transform: uppercase;
+}
+
+.notfound h2 {
+    font-size: 30px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.notfound p {
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.notfound a {
+    text-decoration: none;
+    background-color: #e33d33;
+    color: #fff;
+    padding: .7em 1.2em;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.4s;
+    border: none;
+    cursor: pointer;
+}
+
+.notfound a:hover {
+    background-color: #333;
+}
+
+@media only screen and (max-width: 767px) {
+    .notfound .notfound-404 {
+        height: 110px;
+        line-height: 110px;
+    }
+
+    .notfound .notfound-404 h1 {
+        font-size: 120px;
+    }
+}

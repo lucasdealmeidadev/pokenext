@@ -3,14 +3,20 @@ import styles from '../../styles/Pokemon.module.css';
 
 export const getServerSideProps = async (context) => {
     const { pokemonId } = context.params;
-
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
+
+    if (response.status === 404) {
+        return {
+            notFound: true,
+        }
+    }
+
     const data = await response.json();
 
     return {
         props: {
             pokemon: data
-        }
+        },
     }
 }
 
