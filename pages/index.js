@@ -30,6 +30,7 @@ export default function Home({ pokemons }) {
   const [removeButton, setRemoveButton] = useState(false);
   const [offset, setOffset] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState('');
 
   const getPokemons = async (offset) => {
     setLoading(true);
@@ -57,6 +58,16 @@ export default function Home({ pokemons }) {
     setLoading(false);
   }
 
+  const handleChange = (e) => {
+    setSearch(e.target.value);
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log(search);
+  }
+
   useEffect(() => {
     if (offset !== 0) {
       getPokemons(offset);
@@ -78,12 +89,14 @@ export default function Home({ pokemons }) {
       </div>
 
       <div className={styles.pokemon_container}>
-        <form className={styles.form}>
+        <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.form_control}>
             <input
               type='text'
               name='search'
               placeholder='Pesquise pelo pokémon desejado...'
+              onChange={handleChange}
+              value={search || ''}
             />
 
             <button type='submit'>Pesquisar</button>
