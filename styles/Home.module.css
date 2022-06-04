@@ -25,14 +25,21 @@
     margin: 0 auto;
 }
 
-.load_more {
+.load_more, .not_data {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+.not_data button {
+    position: absolute;
+    margin-top: 70px;
+}
+
 .load_more button,
-.form_control button{
+.form_control button,
+.not_data button {
     text-decoration: none;
     background-color: #e33d33;
     color: #fff;
@@ -45,7 +52,8 @@
 }
 
 .load_more button:hover,
-.form_control button:hover {
+.form_control button:hover,
+.not_data button:hover {
     background-color: #333;
 }
 

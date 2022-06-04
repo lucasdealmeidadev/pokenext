@@ -30,6 +30,8 @@ export default function Home({ pokemons }) {
   const [removeButton, setRemoveButton] = useState(false);
   const [offset, setOffset] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [dataPokemons, setDataPokemons] = useState(pokemons || []);
+  const [pokemonsList, setPokemonsList] = useState(pokemons || []);
   const [search, setSearch] = useState('');
 
   const getPokemons = async (offset) => {
@@ -59,13 +61,46 @@ export default function Home({ pokemons }) {
   }
 
   const handleChange = (e) => {
-    setSearch(e.target.value);
+    const value = e.target.value;
+
+    setSearch(value.toLocaleLowerCase());
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(search);
+    if (search === '') {
+      setRemoveButton(true);
+      setDataPokemons([]);
+      setPaginate([]);
+      return;
+    }
+
+    setLoading(true);
+
+    const api = `https://pokeapi.co/api/v2/pokemon?limit=1126`;
+    const response = await fetch(api);
+    const data = await response.json();
+
+    // add pokemon index
+    data.results.forEach((item, index) => {
+      item.id = index + 1;
+    });
+
+    const dataSearch = data.results.filter(
+      ({ name }) => name.includes(search),
+    );
+
+    setRemoveButton(true);
+    setDataPokemons(dataSearch);
+    setPaginate([]);
+    setLoading(false);
+  }
+
+  const handleBack = () => {
+    setSearch('');
+    setRemoveButton(false);
+    setDataPokemons(pokemonsList);
   }
 
   useEffect(() => {
@@ -103,9 +138,30 @@ export default function Home({ pokemons }) {
           </div>
         </form>
 
-        {pokemons.map((pokemon) => (
-          <Card key={pokemon.id} pokemon={pokemon} />
-        ))}
+        <div className={styles.not_data}>
+          {loading && (
+            <Image
+              src='/images/loading.svg'
+              width='50'
+              height='50'
+              alt='Loading'
+            />
+          )}
+        </div>
+
+        {
+          dataPokemons.length > 0 ? (
+            dataPokemons.map((pokemon) => (
+              <Card key={pokemon.id} pokemon={pokemon} />
+            ))
+          ) : (
+            <div className={styles.not_data}>
+              <p>Nenhum registro foi encontrado, tente novamente.</p>
+              <br />
+              <button onClick={handleBack}>Voltar</button>
+            </div>
+          )
+        }
 
         {
           paginate.length > 0 && paginate.map((pokemon) => (
@@ -121,6 +177,6 @@ export default function Home({ pokemons }) {
           </div>
         }
       </div>
-    </Fragment>
+    </Fragment >
   )
 }
