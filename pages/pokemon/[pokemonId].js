@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 import styles from '../../styles/Pokemon.module.css';
 
@@ -22,10 +23,12 @@ export const getServerSideProps = async (context) => {
 
 export default function Pokemon({ pokemon }) {
     const { id, name, types, height, weight } = pokemon;
+    const router = useRouter();
 
     return (
         <div className={styles.pokemon_container}>
             <h1 className={styles.title}>{name}</h1>
+
             <Image
                 src={`https://cdn.traction.one/pokedex/pokemon/${id}.png`}
                 width='200'
@@ -54,6 +57,11 @@ export default function Pokemon({ pokemon }) {
                     <h4>Peso:</h4>
                     <p>{weight / 10} kg</p>
                 </div>
+            </div>
+            <div className={styles.back}>
+                <button onClick={() => router.back()}>
+                    Voltar
+                </button>
             </div>
         </div>
     );

@@ -126,3 +126,23 @@
 .data_height {
     border-right: 1px solid #ccc;
 }
+
+.back {
+    margin-top: 20px;
+}
+
+.back button {
+    text-decoration: none;
+    background-color: #e33d33;
+    color: #fff;
+    padding: .7em 1.2em;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.4s;
+    border: none;
+    cursor: pointer;
+}
+
+.back button:hover {
+    background-color: #333;
+}

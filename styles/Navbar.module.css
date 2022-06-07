@@ -37,6 +37,6 @@
     border-bottom: 2px solid transparent;
 }
 
-.link_items a:hover {
+.link_items a:hover, .link_items button:hover {
     border-color: #fff;
 }
