@@ -5,11 +5,11 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
 export async function getStaticProps() {
-  //const maxPokemons = 100;
+  //const MAX_POKEMONS = 100;
   const api = 'https://pokeapi.co/api/v2/pokemon?limit=20&offset=0';
   //const api = 'https://pokeapi.co/api/v2/pokemon/';
 
-  //const response = await fetch(`${api}/?limit=${maxPokemons}`);
+  //const response = await fetch(`${api}/?limit=${MAX_POKEMONS}`);
   const response = await fetch(api);
   const data = await response.json();
 
@@ -33,6 +33,7 @@ export default function Home({ pokemons }) {
   const [dataPokemons, setDataPokemons] = useState(pokemons || []);
   const [pokemonsList, setPokemonsList] = useState(pokemons || []);
   const [search, setSearch] = useState('');
+  const MAX_POKEMONS = 300;
 
   const getPokemons = async (offset) => {
     setLoading(true);
@@ -41,7 +42,7 @@ export default function Home({ pokemons }) {
     const response = await fetch(api);
     const data = await response.json();
 
-    if (offset > data.count) {
+    if (offset >= MAX_POKEMONS) {
       setRemoveButton(true);
       return;
     }
@@ -78,7 +79,7 @@ export default function Home({ pokemons }) {
 
     setLoading(true);
 
-    const api = `https://pokeapi.co/api/v2/pokemon?limit=1126`;
+    const api = `https://pokeapi.co/api/v2/pokemon?limit=${MAX_POKEMONS}`;
     const response = await fetch(api);
     const data = await response.json();
 
