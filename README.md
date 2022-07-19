@@ -1,4 +1,4 @@
-# PokeNext
+# <img src="https://github.com/lucasdealmeidadev/pokenext/blob/main/public/images/pokeball.png" alt="drawing" style="width:25px;"/> PokeNext
 
 ![Preview](https://github.com/lucasdealmeidadev/pokenext/blob/main/pokenext.gif?raw=true)
 
