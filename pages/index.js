@@ -5,11 +5,7 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
 export async function getStaticProps() {
-  //const MAX_POKEMONS = 100;
   const api = 'https://pokeapi.co/api/v2/pokemon?limit=20&offset=0';
-  //const api = 'https://pokeapi.co/api/v2/pokemon/';
-
-  //const response = await fetch(`${api}/?limit=${MAX_POKEMONS}`);
   const response = await fetch(api);
   const data = await response.json();
 
