@@ -1,34 +1,62 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# PokeNext
 
-## Getting Started
+![Preview](https://github.com/lucasdealmeidadev/pokenext/blob/main/pokenext.gif?raw=true)
 
-First, run the development server:
+Construindo uma aplicação de visualização de pokémons com Next.js. Esse projeto foi uma ampliação da aula ministrada por **Matheus Battisti** na **Hora de Codar**.
 
-```bash
-npm run dev
-# or
-yarn dev
+Foram adicionados os seguintes recursos ao projeto:
+
+- Criação de um campo search para busca de pokémons específicos;
+- Criação de um botão "Carregar mais" para selecionar 20 registros por vez a cada solicitação;
+- Criação de página 404;
+- Por fim, foi adicionado ações que auxiliam o usuário a retornar a página inicial facilitando a usabilidade do website.
+
+## 🚀 Recursos utilizados
+
+* **[Next.js](https://nextjs.org/)**
+* **[React](https://pt-br.reactjs.org/)**
+* **[React-dom](https://www.npmjs.com/package/react-dom)**
+
+## 🔥 Executando a aplicação no ambiente local
+
+Caso você deseja executar o projeto na sua máquina local, basta seguir os passos abaixo:
+
+### 🌀 Começando... 
+
+Para começar, você deve simplesmente clonar o repositório do projeto na sua máquina e instalar as dependências.
+
+Abra o cmd (caso esteja utilizando o Windows) navegue até o local onde você clonou o projeto
+
+```
+cd "C:\Users\NomeDoComputador\Documents\cloneprojeto"
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Depois, quando estiver na pasta do projeto, basta digitar no cmd a seguinte instrução: **(dentro da pasta do projeto clonado)**
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```
+npm install
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Ao digitar a instrução acima, automaticamente ele irá baixar todas as dependências listadas e definidas no arquivo package.json:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+* `node_modules` - que contêm os packages do npm que precisará para o projeto.
 
-## Learn More
+#### 💨 Executando a aplicação 
 
-To learn more about Next.js, take a look at the following resources:
+No diretório do projeto execute o camando abaixo para executar o projeto:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+> npm dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 🚩 Tenho dúvidas... O que fazer? 
 
-## Deploy on Vercel
+Caso tenham dúvidas sobre o código do projeto, sintam-se a vontade em abrir uma **[ISSUE AQUI](https://github.com/lucasdealmeidadev/pokenext/issues)**. Assim que possível, estarei respondendo as todas as dúvidas que tiverem!
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Licença
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+* Licenciado sob a licença MIT - veja [LICENSE](https://github.com/lucasdealmeidadev/pokenext/blob/main/LICENCE) para mais informações.
+
+----------
+
+Desenvolvido por Lucas de Almeida Monteiro (:  👋  [ Entrar em contato!!](https://www.linkedin.com/in/lucas-almeida-145a4513a)
