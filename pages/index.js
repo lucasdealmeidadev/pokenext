@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import Card from '../components/Card';
 import styles from '../styles/Home.module.css'
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export async function getStaticProps() {
   const api = 'https://pokeapi.co/api/v2/pokemon?limit=20&offset=0';
@@ -22,7 +22,7 @@ export async function getStaticProps() {
 }
 
 export default function Home({ pokemons }) {
-  const [paginate, setPaginate] = useState(0);
+  const [paginate, setPaginate] = useState([]);
   const [removeButton, setRemoveButton] = useState(false);
   const [offset, setOffset] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -40,6 +40,7 @@ export default function Home({ pokemons }) {
 
     if (offset >= MAX_POKEMONS) {
       setRemoveButton(true);
+      setLoading(false);
       return;
     }
 
@@ -98,13 +99,14 @@ export default function Home({ pokemons }) {
     setSearch('');
     setRemoveButton(false);
     setDataPokemons(pokemonsList);
+    setOffset(0);
   }
 
-  useEffect(() => {
-    if (offset !== 0) {
-      getPokemons(offset);
-    }
-  }, [offset]);
+  const handleClick = (offset) => {
+    setOffset(offset);
+
+    if (offset !== 0) getPokemons(offset);
+  }
 
   return (
     <Fragment>
@@ -168,12 +170,12 @@ export default function Home({ pokemons }) {
 
         {!removeButton &&
           <div className={styles.load_more}>
-            <button disabled={loading} onClick={() => setOffset(offset + 20)}>
+            <button disabled={loading} onClick={() => handleClick(offset + 20)}>
               {!loading ? 'Carregar mais' : 'Aguarde, carregando...'}
             </button>
           </div>
         }
       </div>
-    </Fragment >
+    </Fragment>
   )
 }

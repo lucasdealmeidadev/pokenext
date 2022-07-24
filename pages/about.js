@@ -1,11 +1,17 @@
+import { memo } from 'react';
 import styles from '../styles/About.module.css';
 import Image from 'next/image';
 
-export default function About() {
+function About() {
     return (
         <div className={styles.about}>
             <h1>Sobre o projeto</h1>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. In repellat
+                impedit neque et sapiente ipsam laboriosam adipisci illum. Iure
+                voluptate itaque culpa minus ipsa architecto dolorum! Dignissimos
+                recusandae ea aperiam?
+            </p>
             <Image
                 src='/images/charizard.png'
                 width='300'
@@ -15,3 +21,5 @@ export default function About() {
         </div>
     )
 }
+
+export default memo(About);

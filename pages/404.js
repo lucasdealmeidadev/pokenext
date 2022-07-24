@@ -1,9 +1,9 @@
 import Head from 'next/head';
 import Link from 'next/link'
-import { Fragment } from 'react';
+import { Fragment, memo } from 'react';
 import styles from '../styles/NotFound.module.css';
 
-export default function NotFound() {
+function NotFound() {
     return (
         <Fragment>
             <Head>
@@ -25,3 +25,5 @@ export default function NotFound() {
         </Fragment>
     );
 }
+
+export default memo(NotFound);
